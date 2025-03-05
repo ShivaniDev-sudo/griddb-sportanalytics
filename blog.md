@@ -8,9 +8,9 @@ In this article, we explore how GridDB, integrated within a Spring Boot applicat
 
 **Understanding the Use Case**
 
-A single soccer match generates hundreds of timestamped events—such as a midfielder’s pass at given time e.g. 20:05:32 or a striker’s shot at time 20:10:15—each enriched with outcomes and metadata. The sequential nature of this data reveals crucial patterns, like player fatigue or shifts in attacking momentum, that static analyses often miss. For engineers, the challenge lies in efficiently managing this high-speed, high-volume data stream.
+A single soccer match generates hundreds of timestamped events—such as a midfielder’s pass at a given time e.g. 20:05:32 or a striker’s shot at time 20:10:15—each enriched with outcomes and metadata. The sequential nature of this data reveals crucial patterns, like player fatigue or shifts in attacking momentum, that static analyses often miss. For engineers, the challenge lies in efficiently managing this high-speed, high-volume data stream.
 
-To simulate such kind of data, we will use the[ events/15946.json]([open-data/data/events/15946.json at master · statsbomb/open-data · GitHub](https://github.com/statsbomb/open-data/blob/master/data/events/15946.json)) dataset from [StatsBomb](https://statsbomb.com/what-we-do/hub/free-data/), which logs an entire match’s events—including passes, shots, and tackles—with millisecond precision. Our Spring Boot application, powered by GridDB, will focus on:
+To simulate this type of data, we will use [events/15946.json](https://github.com/statsbomb/open-data/blob/master/data/events/15946.json) dataset from [StatsBomb](https://statsbomb.com/what-we-do/hub/free-data/), which logs an entire match’s events—including passes, shots, and tackles—with millisecond precision. Our Spring Boot application, powered by GridDB, will focus on:
 
 - **Performance Tracking**: Monitoring pass accuracy to detect signs of fatigue.
 - **Strategy Optimization**: Analyzing shot frequency to uncover attacking opportunities.
