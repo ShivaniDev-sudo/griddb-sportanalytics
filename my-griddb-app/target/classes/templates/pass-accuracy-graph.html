@@ -1,0 +1,60 @@
+<!-- pass-accuracy-graph.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Pass Accuracy Graph</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .chart-container {
+      width: 80%;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="chart-container">
+    <h2>Pass Count for <span th:text="${playerName}"></span></h2>
+    <canvas id="passChart"></canvas>
+  </div>
+
+  <script th:inline="javascript">
+    const ctx = document.getElementById('passChart').getContext('2d');
+    const timeIntervals = /*[[${timeIntervals}]]*/[];
+    const passCounts = /*[[${passCounts}]]*/[];
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: timeIntervals.map(t => `${t}-${t + 4} min`),
+        datasets: [{
+          label: 'Number of Passes',
+          data: passCounts,
+          backgroundColor: 'rgba(54, 162, 235, 0.5)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Time Intervals (5-minute bins)'
+            }
+          },
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Number of Passes'
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
